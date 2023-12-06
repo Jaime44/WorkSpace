@@ -1,5 +1,18 @@
-import pandas as pd
+import matplotlib.pyplot as plt
 
+
+
+def plot_loss(history):
+    """
+    Función para dibujar la gráfica de pérdida en entrenamiento y validación.
+    """
+    plt.plot(history.history['loss'], label='Entrenamiento')
+    plt.plot(history.history['val_loss'], label='Validación')
+    plt.title('Pérdida en entrenamiento y validación')
+    plt.xlabel('Épocas')
+    plt.ylabel('Pérdida')
+    plt.legend()
+    plt.show()
 
 
 def contar_ocurrencias(df=None, col=None):
@@ -55,8 +68,6 @@ def eliminar_columnas(dataset, columnas_a_eliminar):
     """
     dataset_sin_columnas = dataset.drop(columnas_a_eliminar, axis=1)
     return dataset_sin_columnas
-
-import pandas as pd
 
 def verificar_codificacion_tag(data_frame, columna_a_recorrer='tag', columna_condicional='tag', columna_deseada='tag_encoded'):
     """
