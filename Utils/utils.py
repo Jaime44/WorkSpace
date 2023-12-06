@@ -6,11 +6,11 @@ def plot_loss(history):
     """
     Función para dibujar la gráfica de pérdida en entrenamiento y validación.
     """
-    plt.plot(history.history['loss'], label='Entrenamiento')
-    plt.plot(history.history['val_loss'], label='Validación')
-    plt.title('Pérdida en entrenamiento y validación')
-    plt.xlabel('Épocas')
-    plt.ylabel('Pérdida')
+    plt.plot(history.history['loss'], label='Train')
+    plt.plot(history.history['val_loss'], label='Validation')
+    plt.title('Loss in train and validation')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
     plt.legend()
     plt.show()
 
