@@ -1,3 +1,4 @@
+import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -14,6 +15,37 @@ def plot_loss(history):
     plt.legend()
     plt.show()
 
+def plot_accuracy(history):
+    """
+    Función para dibujar la gráfica de accuracy en entrenamiento y validación.
+    """
+    plt.plot(history.history['accuracy'], label='Train Accuracy')
+    plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
+    plt.xlabel('Epoch')
+    plt.ylabel('Accuracy')
+    plt.legend()
+    plt.show()
+
+def contar_ocurrencias_array(arr=None):
+    """
+    Función para contar las ocurrencias distintas en un array.
+
+    Parámetros:
+    - arr: Array de NumPy.
+    """
+    count = 0
+    # Verificar si el array es None
+    if arr is None:
+        raise ValueError("Debes proporcionar un array.")
+
+    # Contar las ocurrencias distintas
+    valores_unicos, frecuencias = np.unique(arr, return_counts=True)
+
+    # Imprimir los valores únicos y su frecuencia
+    for valor, frecuencia in zip(valores_unicos, frecuencias):
+        count += 1
+        print(f"Valor: {valor}, Frecuencia: {frecuencia}")
+    print(f'Total de valores distintos: {count}')
 
 def contar_ocurrencias(df=None, col=None):
     """
